@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h3>Registrar</h3>
+    <p><input id="nombreId" type="text" placeholder="Nombre"></p>
+    <p><input id="numberId" type="number" placeholder="Teléfono"></p>
+    <p><input id="correoId" type="text" placeholder="Correo"></p>
+    <p><input id="passwordId" type="password" placeholder="Contraseña">
+    <input id="confirmPasswordId" type="password" placeholder="Vuelva escribir la contraseña"></p>
+    <p><button id="btnRegistrar">Registrar</button></p>
+    <p><a href="logIn.html">Ya tengo cuenta</a></p>
+</body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDSQFlzNAbOhqS8wmkr12vfube5ljWpCpA",
+    authDomain: "semana-14-c69e9.firebaseapp.com",
+    databaseURL: "https://semana-14-c69e9.firebaseio.com",
+    projectId: "semana-14-c69e9",
+    storageBucket: "semana-14-c69e9.appspot.com",
+    messagingSenderId: "440004725996",
+    appId: "1:440004725996:web:284e379f11cad5b66a69c9",
+    measurementId: "G-8SEDBC6RDL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="js/signUp.js"></script>
