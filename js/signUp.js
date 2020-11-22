@@ -20,7 +20,7 @@ auth.onAuthStateChanged(
                     nombre: nombre.value,
                     telefono: telefono.value,
                     correo: correo.value,
-                    password: password.value
+                    password: password.value,
                 };
                 database.ref('semana14/users/'+userDB.id).set(userDB).then(
                     () => {

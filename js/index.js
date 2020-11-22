@@ -1,18 +1,22 @@
 const database = firebase.database();
 const auth = firebase.auth();
 
-
 const nombre = document.getElementById('nombre');
 const title = document.getElementById('title');
 const logOutBtn = document.getElementById('logOutBtn');
+const agrBtn = document.getElementById('agrBtn');
+
+let idContacts;
 
 auth.onAuthStateChanged(
     (user)=> {
+
+        idContacts = user.uid;
         
         if(user !== undefined){
 
             console.log(user.uid);
-            database.ref('semana14/users/'+user.uid).once(
+            database.ref('semana14/users/'+idContacts).once(
                 'value',
                 (data)=>{
                     let userDB = data.val();
@@ -36,3 +40,11 @@ logOutBtn.addEventListener('click', ()=>{
         }
     );
 });
+
+agrBtn.addEventListener('click', ()=>{
+    window.location.href = 'contactos.html';
+})
+
+
+
+//Pintar las tarjetas de los contactos que se agregan.
