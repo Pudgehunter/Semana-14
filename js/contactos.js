@@ -25,7 +25,8 @@ agreBtn.addEventListener('click', ()=>{
     reference.set(userDB).then(
         () => {
             const localstorage = window.localStorage;
-            localStorage.setItem('clave',iddd);
+            const asdf = iddd;
+            localStorage.setItem('clave',asdf);
             window.location.href = 'index.html';
         }
     ); 

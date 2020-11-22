@@ -22,9 +22,11 @@ class contacts{
         component.appendChild(deleteBtn);
 
         //Borrar btn
+        const localstorage = window.localStorage;
         deleteBtn.addEventListener('click', ()=>{
             const database = firebase.database();
-            database.ref('semana14/contactos/Kuoa1qzheRS9RzvWadMrlX3MbGR2/'+this.contacto.id).set(null);
+            let asdf = localstorage.getItem('clave')
+            database.ref('semana14/contactos/'+asdf+'/'+this.contacto.id).set(null);
         });
 
         return component;

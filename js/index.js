@@ -11,10 +11,11 @@ const estudianteContact = document.getElementById('estudianteContact');
 let idContacts;
 
 auth.onAuthStateChanged(
+    
     (user)=> {
 
         idContacts = user.uid;
-        
+        console.log(user.uid);
         if(user !== undefined){
 
             console.log(user.uid);
