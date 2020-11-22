@@ -1,8 +1,8 @@
 const database = firebase.database();
 const auth = firebase.auth();
 
-const nombre = document.getElementById('nombreId');
-const telefono = document.getElementById('telefonoId');
+const nombree = document.getElementById('nombreIdContacto');
+const telefonoo = document.getElementById('telefonoIdContacto');
 const agreBtn = document.getElementById('agrBtn');
 
 var agregarContacto = false;
@@ -16,14 +16,16 @@ auth.onAuthStateChanged(
 
 agreBtn.addEventListener('click', ()=>{
     console.log(iddd);
-    let reference = database.ref('semana14/users/'+iddd+'/contactos/').push();
+    let reference = database.ref('semana14/contactos/'+iddd+'/').push();
     let userDB = {
         id: reference.key,
-        nombre: nombre.value,
-        telefono: telefono.value,
+        nombree: nombree.value,
+        telefonoo: telefonoo.value,
     };
     reference.set(userDB).then(
         () => {
+            const localstorage = window.localStorage;
+            localStorage.setItem('clave',iddd);
             window.location.href = 'index.html';
         }
     ); 

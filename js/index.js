@@ -32,6 +32,8 @@ auth.onAuthStateChanged(
 
 
 
+
+
 logOutBtn.addEventListener('click', ()=>{
     auth.signOut().then(
         ()=> {
@@ -52,7 +54,12 @@ agrBtn.addEventListener('click', ()=>{
 
 //Pintar las tarjetas de los contactos que se agregan.
 
-database.ref('semana14/users/'+idContacts+'/contactos').on('value', function(data){
+console.log(idContacts);
+
+const localstorage = window.localStorage;
+let asdf = localstorage.getItem('clave')
+console.log(asdf);
+database.ref('semana14/contactos/'+asdf).on('value', function(data){
     data.forEach(
         contacto => {
             let valor = contacto.val();
