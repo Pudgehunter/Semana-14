@@ -6,6 +6,8 @@ const title = document.getElementById('title');
 const logOutBtn = document.getElementById('logOutBtn');
 const agrBtn = document.getElementById('agrBtn');
 
+
+const estudianteContact = document.getElementById('estudianteContact');
 let idContacts;
 
 auth.onAuthStateChanged(
@@ -20,13 +22,14 @@ auth.onAuthStateChanged(
                 'value',
                 (data)=>{
                     let userDB = data.val();
-                    title.innerHTML = 'Bienvenido ' + userDB.nombre;
-                    nombre.innerHTML = userDB.nombre;
+                    title.innerHTML = 'Bienvenido ' + userDB.nombre + ' ' + idContacts;
+
                 }
             )
         }
     }
 );
+
 
 
 logOutBtn.addEventListener('click', ()=>{
@@ -48,3 +51,13 @@ agrBtn.addEventListener('click', ()=>{
 
 
 //Pintar las tarjetas de los contactos que se agregan.
+
+database.ref('semana14/users/'+idContacts+'/contactos').on('value', function(data){
+    data.forEach(
+        contacto => {
+            let valor = contacto.val();
+            let contactoTarjeta = new contacts(valor);
+            estudianteContact.appendChild(contactoTarjeta.render());
+        }
+    )
+});
